@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  root "to_do_lists#index"
   resources :tasks
-  root to:"to_do_lists#index"
   resources :to_do_lists
   devise_for :users
 
