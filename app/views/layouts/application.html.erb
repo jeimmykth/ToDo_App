@@ -10,28 +10,19 @@
   </head>
 
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-            </li>
-          <% elsif %>
-            <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, method: :get, class: "nav-link" %>
-            </li>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <a class="navbar-brand" href="/">ToDo App</a>
+        <div class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>         
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary"%>
+          <% elsif controller_name != "sessions"  %>
+            <%= link_to "Log in", new_user_session_path, method: :get, class: "btn btn-primary"%>
           <% end %>
-        </ul>
+        </div>
       </div>
     </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

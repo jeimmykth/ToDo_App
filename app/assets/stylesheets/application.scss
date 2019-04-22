@@ -1,1 +1,58 @@
- @import "bootstrap";
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+//@import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-nav {
+    padding: 7px 5px
+}   
+
+.pull-right .btn {
+    margin: 20px 0 10px;
+}
+
+header {
+    background: #3e4249;
+    color: #ccc;
+    padding: 15px;
+    margin-top: -21px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #080808;
+}
+
+h1.header-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: -2px;
+}
+
+.list-group-item:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.list-group-item:hover .buttons {
+    display: block;
+}
+
+.list-group-item-heading {
+    font-size: 150%;
+}
+
+.list-group-item-text {
+    color: #999;
+}
+
+.buttons {
+    position: absolute;
+    height: 20px;
+    width: 80px;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    display: none;
+}

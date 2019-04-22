@@ -1,29 +1,45 @@
-<p id="notice"><%= notice %></p>
 
-<h1>To Do Lists</h1>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="clearfix">
+          <div class="pull-left">
+            <h1 class="header-title">To Do Lists</h1>
+          </div> 
+          <div class="pull-right">
+            <%= link_to "New To Do List", new_to_do_list_path , class: "btn btn-success" %>
+          </div>  
+        </div>
+      </div>  
+    </div>  
+  </div> 
+</header>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @to_do_lists.each do |to_do_list| %>
-      <tr>
-        <td><%= to_do_list.title %></td>
-        <td><%= to_do_list.description %></td>
-        <td><%= link_to 'Show', to_do_list %></td>
-        <td><%= link_to 'Edit', edit_to_do_list_path(to_do_list) %></td>
-        <td><%= link_to 'Destroy', to_do_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+ 
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="list-group">
+          <% @to_do_lists.each do |to_do_list| %>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading"><%= to_do_list.title %></h4>
+              <p class="list-group-item-text"><%= to_do_list.description %></p>
+              <div class="buttons">
+                <%= link_to "", to_do_list_tasks_path(to_do_list.id), class:"btn btn-info btn-xs glyphicon glyphicon-tasks",title:"Manage Tasks" %>
+                <%= link_to "", edit_to_do_list_path(to_do_list), class:"btn btn-defaul btn-xs glyphicon glyphicon-edit", title:"edit" %>
+                <%= link_to "", to_do_list, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger btn-xs glyphicon glyphicon-remove", title:"Destroy" %>              
+              </div>
+            </li>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New To Do List', new_to_do_list_path %>
+
