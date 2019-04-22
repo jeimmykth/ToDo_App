@@ -29,7 +29,7 @@
               <p class="list-group-item-text"><%= to_do_list.description %></p>
               <div class="buttons">
                 <%= link_to "", to_do_list_tasks_path(to_do_list.id), class:"btn btn-info btn-xs glyphicon glyphicon-tasks",title:"Manage Tasks" %>
-                <%= link_to "", edit_to_do_list_path(to_do_list), class:"btn btn-defaul btn-xs glyphicon glyphicon-edit", title:"edit" %>
+                <%= link_to "", edit_to_do_list_path(to_do_list), class:"btn btn-defaul btn-xs glyphicon glyphicon-edit", title:"Edit" %>
                 <%= link_to "", to_do_list, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger btn-xs glyphicon glyphicon-remove", title:"Destroy" %>              
               </div>
             </li>

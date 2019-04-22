@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :done]
   before_action :set_to_do_list
 
   # GET /tasks
   def index
-    @tasks = @to_do_list.tasks
+    @tasks = Task.where("to_do_list_id = ? AND is_completed = ?", @to_do_list.id, false)
   end
 
   # GET /tasks/1
@@ -12,9 +12,11 @@ class TasksController < ApplicationController
   end
 
   def done
-    @tasks=task.is_completed:true
-    @tasks.save
+    @task.is_completed = true
+    @task.save
+    redirect_to to_do_list_tasks_path(to_do_list_id: @task.to_do_list_id)    
   end
+
   # GET /tasks/new
   def new
     @task = @to_do_list.tasks.build

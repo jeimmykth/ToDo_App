@@ -26,7 +26,7 @@ class ToDoListsController < ApplicationController
     @to_do_list.user_id = current_user.id
 
     if @to_do_list.save
-      redirect_to @to_do_list, notice: 'To do list was successfully created.'
+      redirect_to to_do_lists_url, notice: 'To do list was successfully created.'
     else
       render :new 
     end
@@ -35,7 +35,7 @@ class ToDoListsController < ApplicationController
   # PATCH/PUT /to_do_lists/1
   def update
       if @to_do_list.update(to_do_list_params)
-        redirect_to @to_do_list, notice: 'To do list was successfully updated.'
+        redirect_to to_do_lists_url, notice: 'To do list was successfully updated.'
       else
         render :edit 
       end
