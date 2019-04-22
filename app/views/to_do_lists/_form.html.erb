@@ -1,27 +1,29 @@
-<%= form_with(model: to_do_list, local: true) do |form| %>
-  <% if to_do_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(to_do_list.errors.count, "error") %> prohibited this to_do_list from being saved:</h2>
+<div class="col-md-4 col-md-offset-4">
+    <%= form_with(model: to_do_list, local: true) do |form| %>
+      <% if to_do_list.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(to_do_list.errors.count, "error") %> prohibited this to_do_list from being saved:</h2>
 
-      <ul>
-      <% to_do_list.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% to_do_list.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control'%>
+      </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: 'form-control' %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="form-group">
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
-<% end %>

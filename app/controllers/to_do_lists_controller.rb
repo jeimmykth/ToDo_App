@@ -3,7 +3,7 @@ class ToDoListsController < ApplicationController
 
   # GET /to_do_lists
   def index
-    @to_do_lists = ToDoList.all
+    @to_do_lists = ToDoList.where(user_id: current_user.id)
   end
 
   # GET /to_do_lists/1
@@ -18,6 +18,7 @@ class ToDoListsController < ApplicationController
   # GET /to_do_lists/1/edit
   def edit
   end
+
 
   # POST /to_do_lists
   def create

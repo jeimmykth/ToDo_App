@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-4 col-md-offset-4">
+    <div class="form-group">
+      <strong>Title:</strong>
+      <%= @to_do_list.title %>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @to_do_list.title %>
-</p>
+    <div class="form-group"> 
+      <strong>Description:</strong>
+      <%= @to_do_list.description %>
+    </div>
 
-<p> 
-  <strong>Description:</strong>
-  <%= @to_do_list.description %>
-</p>
-
-<%= link_to 'Edit', edit_to_do_list_path(@to_do_list) %> |
-<%= link_to 'Back', to_do_lists_path %>
+    <%= link_to 'Edit', edit_to_do_list_path(@to_do_list) %> |
+    <%= link_to 'Back', to_do_lists_path %>
+</div>

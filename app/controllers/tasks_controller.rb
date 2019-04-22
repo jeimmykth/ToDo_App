@@ -11,6 +11,10 @@ class TasksController < ApplicationController
   def show
   end
 
+  def done
+    @tasks=task.is_completed:true
+    @tasks.save
+  end
   # GET /tasks/new
   def new
     @task = @to_do_list.tasks.build
